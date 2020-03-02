@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view){
         Intent i = new Intent("com.deva.tidy.AddTaskActivity");
-        i.putExtra("taskNumber", myDataset.size());
+        i.putExtra("taskNumber", myDataset.size()+1);
         startActivityForResult(i, ADD_TASK_REQUEST_CODE);
     }
 
@@ -60,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == ADD_TASK_REQUEST_CODE){
             if(resultCode == RESULT_OK){
                 Task newTask = (Task) data.getSerializableExtra("newTask");
-
                 myDataset.add(newTask);
+                Collections.sort(myDataset);
+                mAdapter = new MyAdapter(myDataset);
+                recyclerView.setAdapter(mAdapter);
             }
         }
     }
