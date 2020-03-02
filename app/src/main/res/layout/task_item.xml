@@ -38,4 +38,5 @@
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/taskCheckBox" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,9 @@
 package com.deva.tidy;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Task implements Comparable<Task>{
+public class Task implements Comparable<Task>, Serializable {
     private String name;
     private Timestamp due;
     private boolean isDone;

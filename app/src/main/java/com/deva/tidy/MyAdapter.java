@@ -11,9 +11,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private Task[] mDataset;
+    private ArrayList<Task> mDataset;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public ConstraintLayout constraintLayout;
@@ -23,7 +24,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
-    public MyAdapter(Task[] myDataset){
+    public MyAdapter(ArrayList<Task> myDataset){
         mDataset = myDataset;
     }
 
@@ -40,14 +41,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         CheckBox task = (CheckBox)  holder.constraintLayout.getViewById(R.id.taskCheckBox);
         TextView dueDate = (TextView) holder.constraintLayout.getViewById(R.id.due_date);
         TextView dueTime = (TextView) holder.constraintLayout.getViewById(R.id.due_time);
-        task.setText(mDataset[position].getName());
-        dueDate.setText(new SimpleDateFormat("dd MMM yyyy").format(mDataset[position].getDue()));
-        dueTime.setText(new SimpleDateFormat("hh:mm").format(mDataset[position].getDue()));
+        task.setText(mDataset.get(position).getName());
+        dueDate.setText(new SimpleDateFormat("dd MMM yyyy").format(mDataset.get(position).getDue()));
+        dueTime.setText(new SimpleDateFormat("hh:mm").format(mDataset.get(position).getDue()));
     }
 
     @Override
     public int getItemCount(){
-        return mDataset.length;
+        return mDataset.size();
     }
 
 }
