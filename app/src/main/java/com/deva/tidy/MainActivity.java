@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view){
         Intent i = new Intent("com.deva.tidy.AddTaskActivity");
-        i.putExtra("taskNumber", myDataset.size()+1);
+        Bundle b = new Bundle();
+        b.putInt("taskNumber", myDataset.size()+1);
+        i.putExtras(b);
         startActivityForResult(i, ADD_TASK_REQUEST_CODE);
     }
 
