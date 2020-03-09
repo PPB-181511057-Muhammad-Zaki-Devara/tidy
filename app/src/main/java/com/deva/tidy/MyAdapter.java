@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -44,6 +45,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         task.setText(mDataset.get(position).getName());
         dueDate.setText(new SimpleDateFormat("dd MMM yyyy").format(mDataset.get(position).getDue()));
         dueTime.setText(new SimpleDateFormat("hh:mm").format(mDataset.get(position).getDue()));
+        task.setChecked(mDataset.get(position).isDone() ? true: false);
+
+        final int pos = position;
+        task.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mDataset.get(pos).setDone(isChecked);
+            }
+        });
     }
 
     @Override

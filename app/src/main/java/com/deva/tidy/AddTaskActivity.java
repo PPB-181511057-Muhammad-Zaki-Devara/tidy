@@ -92,7 +92,6 @@ public class AddTaskActivity extends AppCompatActivity {
         Log.d("due date", dueDate.getText().toString());
         Log.d("due time", dueTime.getText().toString());
 
-
         String due = dueDate.getText().toString() + ' ' + dueTime.getText().toString() + ":00";
 
         Log.d("due", due);
